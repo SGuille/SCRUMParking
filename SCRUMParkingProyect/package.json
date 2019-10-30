@@ -1,30 +1,39 @@
 {
-  "name": "electron-with-create-react-app",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "electron": "^1.8.8",
-    "electron-packager": "^14.0.6",
-    "foreman": "^2.0.0",
-    "react-scripts": "3.2.0"
+  "homepage": "./",
+  "main": "src/start.js",
+  "build": {
+    "appId": "com.electron.test",
+    "win": {
+      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+    },
+    "directories": {
+      "buildResources": "public"
+    }
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "mysql": "^8.0.18",
+    "electron": "^7.0.0",
     "react": "^16.11.0",
-    "react-bootstrap": "^1.0.0-beta.14",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "react-scripts": "3.2.0",
+    "typescript": "^3.6.4"
   },
-  "homepage": "./",
-  "main": "src/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "dev": "nf start -p 3000"
+    "electron-start": "node src/start-react",
+    "react-start": "BROWSER=none react-scripts start",
+    "pack": "build --dir",
+    "dist": "npm run build && build",
+    "postinstall": "install-app-deps"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -37,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron-builder": "^21.2.0"
   }
 }
